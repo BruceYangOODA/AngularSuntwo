@@ -1,0 +1,284 @@
+[
+    {
+        "id": "1",
+        "category": "雞肉",
+        "name": "雞皮",
+        "price": 30,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+        
+    },
+    {
+        "id": "2",
+        "category": "雞肉",
+        "name": "雞眕",
+        "price": 30,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+        
+    },
+    {
+        "id": "3",
+        "category": "雞肉",
+        "name": "雞心",
+        "price": 30,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "4",
+        "category": "雞肉",
+        "name": "雞柳條",
+        "price": 30,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "5",
+        "category": "雞肉",
+        "name": "雞屁股",
+        "price": 30,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "6",
+        "category": "雞肉",
+        "name": "雞翅",
+        "price": 35,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "7",
+        "category": "雞肉",
+        "name": "雞腿肉",
+        "price": 40,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "8",
+        "category": "雞肉",
+        "name": "雞腸子",
+        "price": 60,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "9",
+        "category": "豬肉",
+        "name": "手工香腸",
+        "price": 35,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "10",
+        "category": "豬肉",
+        "name": "脆皮肥腸",
+        "price": 40,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "11",
+        "category": "豬肉",
+        "name": "梅花豬肉串",
+        "price": 40,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "12",
+        "category": "豬肉",
+        "name": "三星蔥肉卷",
+        "price": 45,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "13",
+        "category": "豬肉",
+        "name": "辣椒豬五花卷",
+        "price": 45,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "14",
+        "category": "串燒",
+        "name": "豆皮",
+        "price": 25,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "15",
+        "category": "串燒",
+        "name": "貢丸",
+        "price": 25,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "16",
+        "category": "串燒",
+        "name": "鑫鑫腸",
+        "price": 25,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "17",
+        "category": "串燒",
+        "name": "豬血糕",
+        "price": 25,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "18",
+        "category": "串燒",
+        "name": "豆干",
+        "price": 25,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "19",
+        "category": "串燒",
+        "name": "百頁豆腐",
+        "price": 25,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "20",
+        "category": "串燒",
+        "name": "甜不辣",
+        "price": 25,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "21",
+        "category": "串燒",
+        "name": "黃金魚蛋",
+        "price": 25,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "22",
+        "category": "蔬菜",
+        "name": "馬鈴薯",
+        "price": 25,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "23",
+        "category": "蔬菜",
+        "name": "杏鮑菇",
+        "price": 30,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "24",
+        "category": "蔬菜",
+        "name": "香菇",
+        "price": 30,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "25",
+        "category": "蔬菜",
+        "name": "花椰菜",
+        "price": 30,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "26",
+        "category": "蔬菜",
+        "name": "玉米",
+        "price": 35,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "27",
+        "category": "蔬菜",
+        "name": "彩虹蔬菜串",
+        "price": 35,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    },
+    {
+        "id": "28",
+        "category": "蔬菜",
+        "name": "玉米筍",
+        "price": 50,
+        "amount":0,
+        "status":"0",
+        "spicy":"原味",
+        "desc":""
+    }
+]

@@ -1,3 +1,5 @@
+
+import { DataServiceService, ProductDetail } from 'src/app/shared/data-service.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'suntwo';
+   
 }

@@ -1,0 +1,48 @@
+a:hover {
+    cursor:pointer
+    }
+* {
+    padding: 0px;
+    margin: 0px;
+}
+.figure { width: 120px;}
+.icon { width: 30px;}
+.nameTag { height: 33%; padding-top: 10px;
+   
+ }
+ .lbAmount{ padding-left: 10px;
+    padding-right: 10px;}
+.lbPrice { padding-left: 10px;
+    padding-right: 10px;}
+.spicyTag{ margin-top: 15px ;
+            }
+.commentsBtn { margin-top: 30px;
+    }            
+img {
+   
+    
+}
+input[type=checkbox] {
+    zoom: 200%;
+    margin-top: 10px;
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+.name-tag{
+    font-size: 1em;
+    margin-top: 20px;
+}
+.amount {
+    font-size: 1em;
+    padding-top: 20px;
+
+}
+.zero {    
+    padding: 0px;
+    margin: 0px;
+}
+.money-tag{
+    text-align: center;
+    margin-left: 30%;
+    width: 40%;
+}

@@ -1,0 +1,56 @@
+<div class="row zero">
+    <div class="col-sm-1 col-md-1 row zero">
+        <div class="col-sm-2 col-md-2 zero">
+            <input type="checkbox" value="product.status" [checked]="product.status=='1'" [name]="'status'+product.id"
+                (click)="checkBoxClick()">
+        </div>
+        <div class="col name-tag">
+            {{product.name}}
+        </div>
+
+    </div>
+    <div class="col-sm-2 col-md-2 zero">
+        <img [src]="'assets/images/thumbs/'+ product.name +'.jpg'">
+    </div>
+    <div class="col-sm-2 col-md-2 zero">
+        <div class="amount container">
+            <div class="row">
+                <div class="col-sm-4 col-md-4">
+                    <a class="badge badge-primary" (click)="changeAmount('-')">-</a>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <label>{{product.amount}}</label>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <a class="badge badge-primary" (click)="changeAmount('+')">+</a>
+                </div>
+            </div>
+            <div class="row zero">
+                <input class="money-tag" type="text" readonly unselectable="on"
+                    [value]="product.amount * product.price">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2 col-md-2">
+        <div class="row  zero">
+            <div class="col-sm-4 col-md-4">
+                <label><input type="radio" [name]="'spicy'+product.id" value="原味" [checked]="checkSpicy('原味')"
+                        (click)="radioClick($event.target.value)">原味</label>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <label><input type="radio" [name]="'spicy'+product.id" value="小辣" [checked]="checkSpicy('小辣')"
+                        (click)="radioClick($event.target.value)">小辣</label>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <label><input type="radio" [name]="'spicy'+product.id" value="大辣" [checked]="checkSpicy('大辣')"
+                        (click)="radioClick($event.target.value)">大辣</label>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-1 col-md-1">
+        <input type="text" [value]="product.desc" (blur)="changeDesc($event.target.value)">
+    </div>
+    <div class="col-sm-1 col-md-1">
+        <button (click)="editClick()">修改</button>
+    </div>
+</div>

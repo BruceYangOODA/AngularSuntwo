@@ -1,0 +1,33 @@
+
+.active{
+    background-color: aqua;    
+    border: 1px solid;
+}
+
+.page-link{
+    font-size: 1.5em;
+}
+
+.img-container{    
+    padding: 10px auto;
+    margin: 10px auto;        
+}
+.img-container:hover{
+    border: 2px solid;   
+}
+
+.img-container span{
+    width:80%;    
+    margin-left: 10%;
+}
+.modal-title {
+    width: 100%;
+    text-align: center;
+}
+.modal-body {
+    margin: 0px auto;
+}
+.modal-body img{
+    width: 360px;
+    height:360px;
+}

@@ -1,0 +1,38 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div >
+                <div>
+                    <span class="badge badge-lg badge-info" (click)="backClick()" >返回</span>
+                    <span class="badge badge-lg" [class.badge-primary]="addTag==0" [class.badge-secondary]="addTag==1"
+                    (click)="tagClick(0)" style="margin-left: 20px;" >客戶訂單</span>
+                    <span class="badge badge-lg" [class.badge-primary]="addTag==1" [class.badge-secondary]="addTag==0"
+                    (click)="tagClick(1)" *ngIf="isShowAdd" 
+                    >加購選項</span>
+                    <input id="addTag" (click)="addCheck($event.target.checked)" type="checkbox" style="zoom: 200%; margin-left: 15px;">
+                    <label for="addTag" class="checkbox-inline">加購</label>                       
+                    <span class="badge badge-lg badge-info" *ngIf="isShowDelete" (click)="deleteClick()" >刪除</span>
+                    <input id="deleteTag" (click)="deleteCheck($event.target.checked)" type="checkbox" style="zoom: 200%; margin-left: 15px;">
+                    <label for="deleteTag" class="checkbox-inline">刪除</label>   
+                  </div>     
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12" *ngFor="let item of productList"
+                   >
+                <app-order-detail [product]="item" (productChange)="item" [comments]="item.desc"
+                [hidden]="(addTag==0)?item.amount==0:item.amount>0"></app-order-detail>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+    <div class="col-xs-12 col-sm-9 col-md-8 col-lg-6 text-center">
+        <button *ngIf="userOrder" class="btn btn-primary btn-lg" [disabled]="userOrder.status==='收單'"
+        (click)="produceClick()">收 單</button>
+    </div>
+</div>
+</div>

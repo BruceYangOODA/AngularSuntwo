@@ -1,0 +1,130 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="/home"  [class.active]="navTag=='home'">路邊燒烤</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item" >
+        <a class="nav-link" href="/product" 
+        [class.active]="navTag=='product'">商品一覽</a>
+      </li>
+      <li class="nav-item" [hidden]="userID=='Guest'">
+        <a class="nav-link" href="/order" 
+        [class.active]="navTag=='order'">網路預定</a>
+      </li>
+      <li class="nav-item" [hidden]="userID=='Guest'">
+        <a class="nav-link" href="/cart" 
+        [class.active]="navTag=='cart'">訂單明細</a>
+      </li>
+      <li class="nav-item" [hidden]="userID=='Guest'">
+        <a class="nav-link" href="/account" 
+        [class.active]="navTag=='account'">帳號管理</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="modal" data-target="#loginModal">
+          {{ (userID=="Guest")?"Log In":"Log Out" }}</a>
+      </li>
+      <li class="nav-item" [hidden]="!isAdmin">
+        <a class="nav-link" href="/admin" 
+        [class.active]="navTag=='admin'">管理介面</a>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h4><label style="color: aqua;" text="GGG"> {{ userID }}</label></h4>
+  </div>
+</nav>
+
+<!--  MODAL -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title text-center" style="width:90%">
+          <label class="control-label">
+            <h3>{{(userID=="Guest")?"登入帳號":"登出帳號"}}</h3>
+          </label>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div [formGroup]="loginForm">
+          <div class="form-group container row">
+            <div class="col-sm-4 col-xs-4 text-left">
+              <label class="control-label">
+                <h4>帳號:</h4>
+              </label>
+            </div>
+            <div class="col-sm-8 col-xs-8">
+              <input formControlName="account" class="form-control" type="text">
+              <span class="help-block" *ngIf="formErrors.account"> {{ formErrors.account }}</span>
+            </div>
+          </div>
+          <div class="form-group container row">
+            <div class="col-sm-4 col-xs-4 text-left">
+              <label class="control-label">
+                <h4>密碼:</h4>
+              </label>
+            </div>
+            <div class="col-sm-8 col-xs-8">
+              <input formControlName="password" class="form-control" type="password">
+              <span class="help-block" *ngIf="formErrors.password"> {{ formErrors.password }}</span>
+            </div>
+          </div>
+          <div class="form-group container row" [hidden]="loginTag=='login'">
+            <div class="col-sm-4 col-xs-4 text-left">
+              <label class="control-label">
+                <h4>確認密碼:</h4>
+              </label>
+            </div>
+            <div class="col-sm-8 col-xs-8">
+              <input formControlName="confirmPassword" class="form-control" type="password">
+              <span class="help-block" *ngIf="formErrors.confirmPassword"> {{ formErrors.confirmPassword }}</span>
+            </div>
+
+          </div>
+          <div class="form-group container row">
+            <div class="col-sm-4 col-xs-4 text-left">
+              <label class="control-label">
+                <h4>登入模式:</h4>
+              </label>
+            </div>
+            <div class="col-sm-8 col-xs-8 row">
+              <div class="col-sm-6 col-xs-6">
+                <input formControlName="logTag" name="logTag" type="radio" value="login" id="loginTag"
+                  class="radio-inline" (click)="loginTag=$event.target.value">
+                <label class="radio-inline" style="padding-left: 20px;" for="loginTag">
+                  <h5>登入</h5>
+                </label>
+              </div>
+              <div class="col-sm-6 col-xs-6">
+                <input type="radio" formControlName="logTag" name="logTag" value="regist" id="registTag"
+                  class="radio-inline" (click)="loginTag=$event.target.value">
+                <label class="radio-inline" style="padding-left: 20px;" for="registTag">
+                  <h5>註冊</h5>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer row text-center">
+          <div class="container">
+            <button [hidden]="userID!='Guest'" class="btn-lg" data-dismiss="modal" (click)="loginClick()"
+            [disabled]="!loginForm.valid"><span
+                class="badge badge-primary" >{{loginTag=='login'?'登入':'註冊'}}</span></button>
+            <button [hidden]="userID=='Guest'" class="btn-lg" data-dismiss="modal" (click)="logoutClick()"><span
+                class="badge badge-secondary">登出</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

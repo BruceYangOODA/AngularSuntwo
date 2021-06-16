@@ -1,0 +1,7 @@
+.center{margin: auto;}
+
+.bigger { width: 60px; height: 30px; margin-left: 30px; padding-top: 5px;}
+.rdShop { font-size: larger;}
+input[type=radio]{
+    transform:scale(1.5);
+  }

@@ -1,0 +1,19 @@
+.badge:hover {
+  cursor:pointer
+  }
+
+.badge-lg {
+    height: 40px;
+    font-size: x-large;
+} 
+.active {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;  
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  
+}
+button { width: 120px; }

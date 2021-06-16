@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row"> 
+        <div class="col-sm-3 col-md-2 col-xs-3">
+            <img class="figure" [src]="'assets/images/thumbs/'+ product.name +'.jpg'">
+        </div>
+        <div class="col-sm-3 col-md-2 col-xs-3" >
+            <div class="container" >
+                <div class="col" >
+                    <div class="text-center nameTag">
+                        {{product.name}}
+                    </div>
+                    <div class="text-center nameTag"  >
+                        <img class="icon" src="assets/images/minus.svg" (click)="changeAmount('-')">
+                        <label class="lbAmount">{{product.amount}}</label>
+                        <img class="icon" src="assets/images/plus.svg" (click)="changeAmount('+')">
+                    </div>
+                    <div class="text-center">
+                        <label class="lbPrice">{{ (product.amount * product.price) || ""}}</label>
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-2 col-xs-3">
+            <div class="text-center spicyTag">
+                <div>
+                    <label><input type="radio" [name]="'spicy'+product.id" value="原味" [checked]="checkSpicy('原味')"
+                            (click)="radioClick($event.target.value)">原味</label>
+                </div>
+                <div>
+                    <label><input type="radio" [name]="'spicy'+product.id" value="小辣" [checked]="checkSpicy('小辣')"
+                            (click)="radioClick($event.target.value)">小辣</label>
+                </div>
+                <div>
+                    <label><input type="radio" [name]="'spicy'+product.id" value="大辣" [checked]="checkSpicy('大辣')"
+                            (click)="radioClick($event.target.value)">大辣</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-2 col-xs-3">
+            <button class="commentsBtn" (click)="commentsClick()">備註</button>
+            <input *ngIf="comments" type="text" placeholder="輸入備註事項" 
+            [value]="product.desc" (blur)="changeDesc($event.target.value)">
+        </div>
+    </div>
+</div>

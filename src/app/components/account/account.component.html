@@ -1,0 +1,52 @@
+<div [formGroup]="manageForm">
+    <div class="form-group container row">
+        <div class="col-sm-4 col-xs-4 text-left">
+            <label class="control-label">
+                <h4>帳號:</h4>
+            </label>
+        </div>
+        <div class="col-sm-8 col-xs-8">
+            <input formControlName="account" class="form-control" type="text">
+            <span class="help-block" *ngIf="formErrors.account"> {{ formErrors.account }}</span>
+        </div>
+    </div>
+    <div class="form-group container row">
+        <div class="col-sm-4 col-xs-4 text-left">
+            <label class="control-label">
+                <h4>密碼:</h4>
+            </label>
+        </div>
+        <div class="col-sm-8 col-xs-8">
+            <input formControlName="password" class="form-control" type="password">
+            <span class="help-block" *ngIf="formErrors.password"> {{ formErrors.password }}</span>
+        </div>
+    </div>
+    <div class="form-group container row">
+        <div class="col-sm-4 col-xs-4 text-left">
+            <label class="control-label">
+                <h4>確認密碼:</h4>
+            </label>
+        </div>
+        <div class="col-sm-8 col-xs-8">
+            <input formControlName="confirmPassword" class="form-control" type="password">
+            <span class="help-block" *ngIf="formErrors.confirmPassword"> {{ formErrors.confirmPassword }}</span>
+        </div>
+    </div>
+
+    <div class="form-group container row">
+        <div class="col-sm-4 col-xs-4 text-left">
+            <label class="control-label">
+                <h4>新密碼:</h4>
+            </label>
+        </div>
+        <div class="col-sm-8 col-xs-8">
+            <input formControlName="newPassword" class="form-control" type="password">
+            <span class="help-block" *ngIf="formErrors.newPassword"> {{ formErrors.newPassword }}</span>
+        </div>
+    </div>
+    <div class="container text-center">
+        <button class="btn btn-primary btn-lg" [disabled]="!manageForm.valid" 
+        (click)="editPassword()">修改密碼</button>
+    </div>
+
+</div>

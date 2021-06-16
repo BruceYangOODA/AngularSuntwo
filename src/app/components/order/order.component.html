@@ -1,0 +1,61 @@
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="btn-group btn-group-lg btn-group-justified">
+          <a class="btn btn-primary" [class.btn-warning]="(tag=='雞肉')" (click)="chickenClick()">雞肉</a>
+          <a class="btn btn-primary" [class.btn-warning]="(tag=='豬肉')" (click)="porkClick()">豬肉</a>
+          <a class="btn btn-primary" [class.btn-warning]="(tag=='串燒')" (click)="etcClick()">串燒</a>
+          <a class="btn btn-primary" [class.btn-warning]="(tag=='蔬菜')" (click)="vegetableClick()">蔬菜</a>
+          <a class="btn btn-primary" [class.btn-warning]="(tag=='全部')" (click)="allClick()">全部</a>          
+        </div>
+      </div>
+    </div>
+  </div>
+      <div class="container-fluid">
+      <div class="row">
+          <div class="col-sm-11 col-md-11" *ngFor="let item of productList"
+          [hidden]="!(inTheTag(item.category))">
+      <app-order-detail [product]="item" (productChange)="item" [comments]="false"></app-order-detail>
+        </div>
+      </div>
+    </div>     
+  <div class="text-center">
+    <button class="btn btn-primary btn-lg" 
+    data-toggle="modal" data-target="#orderModal">訂 購</button>
+  </div>
+<!--  MODAL -->
+<div class="modal fade" id="orderModal" tabindex="-1" role="dialog"
+ aria-labelledby="exampleModalLabel" aria-hidden="true" 
+ data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" >
+        <div class="modal-title" id="exampleModalLabel">訂單確認  帳號: {{ userID }}</div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+          <label>選擇店家: </label>
+          <span class="badge badge-secondary bigger">
+          <input class="rdShop" type="radio" name="shop" id="shop1" value="新泰" (click)="clickShop($event.target.value)"><label for="shop1">新泰</label></span>
+          <span class="badge badge-secondary bigger">
+            <input class="rdShop" type="radio" name="shop" id="shop2" value="四維" (click)="clickShop($event.target.value)"><label for="shop2">四維</label></span>
+        </div>
+        <div class="text-center"><h2>訂單總計 {{getTotal()}} 元</h2></div>
+      </div>
+      
+      <div class="modal-footer row">
+        <div class="col"></div>
+        <div class="col">
+          <button class="btn btn-success btn-lg" data-dismiss="modal" (click)="takeOrder()">確定</button>
+        </div>
+        <div class="col">        
+        <button class="btn btn-danger btn-lg" data-dismiss="modal">取消</button>
+      </div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </div>
+</div>

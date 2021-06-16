@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="btn-group btn-group-lg btn-group-justified">
+        <a class="btn btn-primary" [class.btn-warning]="(tag=='雞肉')" (click)="chickenClick()">雞肉</a>
+        <a class="btn btn-primary" [class.btn-warning]="(tag=='豬肉')" (click)="porkClick()">豬肉</a>
+        <a class="btn btn-primary" [class.btn-warning]="(tag=='串燒')" (click)="etcClick()">串燒</a>
+        <a class="btn btn-primary" [class.btn-warning]="(tag=='蔬菜')" (click)="vegetableClick()">蔬菜</a>
+        <a class="btn btn-primary" [class.btn-warning]="(tag=='全部')" (click)="allClick()">全部</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let item of productList; let i = index;"
+      [hidden]="!(inTheTag(item.category))" [class.active]="item.name==selectedItem?.name">
+      <div class="img-container" >
+        <img class="img-fluid img-thumbnail" data-toggle="modal" data-target="#imgModal"
+          [src]="'assets/images/thumbs/'+ item.name +'.jpg'" (click)="imgClick(item.name)">
+        <span class="badge badge-secondary">{{ item.name }} {{ item.price}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="imgModalLabel" aria-hidden="true"
+ *ngIf="selectedItem">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">{{ selectedItem.name }} {{ selectedItem.price}}</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img [src]="'assets/images/thumbs/'+ selectedItem.name +'.jpg'">
+      </div>
+      <div class="modal-footer">        
+      </div>
+    </div>
+  </div>
+</div>

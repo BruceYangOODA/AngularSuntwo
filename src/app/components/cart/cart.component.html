@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <button class="btn btn-lg " (click)="navTagClick('1')" [class.active]="navTag=='1'">新訂單</button>
+    </li>
+    <li class="nav-item">
+      <button class="btn btn-lg " (click)="navTagClick('2')" [class.active]="navTag=='2'">訂單一覽</button>
+    </li>
+  </ul>
+</nav>
+<!-- 新訂單 -->
+<div class="container" *ngIf="navTag=='1'">
+  <div class="row" *ngIf="orderDetail">
+    <div class="col-xs-12">
+      <div class="row">
+        <label style="padding-left: 30px;padding-right: 30px;">
+          <h4>{{ orderDetail.shop}} 店</h4>
+        </label>
+        <div *ngIf="orderDetail.status==memory.received">
+          <h4> 收單時間: {{ formatTime(orderDetail.produceTime)}}</h4>
+        </div>
+      </div>
+      <div>
+        <span class="badge badge-lg" [class.badge-primary]="addTag==0" [class.badge-secondary]="addTag==-1"
+          (click)="navAddClick(0)">訂購明細</span>
+        <span class="badge badge-lg" [class.badge-primary]="addTag==-1" [class.badge-secondary]="addTag==0"
+          (click)="navAddClick(-1)">可加購清單</span>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12" *ngFor="let item of orderDetail.order">
+          <app-order-detail *ngIf="addTag==0?item.amount>0:item.amount<1" [product]="item" (productChange)="item"
+            [comments]="item.desc"></app-order-detail>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-9 col-md-8 col-lg-6 text-center">
+          <button class="btn btn-primary btn-lg" [disabled]="orderDetail.status==memory.received"
+            (click)="editOrder()">修改訂單</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="nofound" *ngIf="navTag=='1'" [hidden]="orderDetail">
+    <h2>沒有新訂單</h2>
+  </div>
+</div>
+<!-- 訂單一覽 -->
+<div class="orderRecord" *ngIf="orderList" [hidden]="navTag!='2' || checkedOrder">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>訂單編號</th>
+        <th>金額</th>
+        <th>查閱</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of orderList; let i=index">
+      <tr>
+        <td>{{item.orderID}}</td>
+        <td>{{getTotal(item.order)}}</td>
+        <td><button class="btn btn-primary btn-lg" (click)="checkOrderClick(item)">查 閱</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="nofound" *ngIf="navTag=='2'" [hidden]="orderList">
+    <h2>沒有訂單資料</h2>
+  </div>
+</div>
+<!-- 訂單清單 -->
+<div class="orderDetail" *ngIf="checkedOrder" [hidden]="navTag!='2'">
+<span class="badge badge-lg badge-info" (click)="backClick()">返回</span>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>品名</th>
+      <th>金額</th>
+      <th>數量</th>
+      <th>數量</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let item of checkedOrder.order; let i=index">
+    <tr *ngIf="item.amount>0">
+      <td>{{item.name}}</td>
+      <td>{{item.price}}</td>
+      <td>{{item.amount}}</td>
+      <td>{{item.spicy}}</td>
+    </tr>
+  </tbody>
+</table>  
+</div>
